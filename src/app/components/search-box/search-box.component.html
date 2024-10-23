@@ -1,0 +1,12 @@
+  <div class="card flex justify-content-center">
+    <input
+    type="text" pInputText
+    [value]="initialValue"
+    [placeholder]="placeholder"
+    (keyup.enter)="onKeyPress(txtInput.value)"
+    #txtInput
+    />
+
+
+    <!-- <p-button label="Buscar"  (onClick)="searchById(value)"/> -->
+</div>
