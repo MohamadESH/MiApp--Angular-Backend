@@ -1,0 +1,56 @@
+
+<div class="row">
+  <div class="col">
+    <!-- Tabla  -->
+    <div class="card">
+      <p-table [value]="listCapitulos" [tableStyle]="{ 'min-width': '50rem' }"  >
+
+        <ng-template pTemplate="caption">
+          <div class="flex align-items-center justify-content-between">
+              Lista Capitulos
+              <a routerLink="/crear-capitulos" class="p-button font-bold">
+                Crear Capitulo
+            </a>
+              <component-search-box
+              placeholder="Buscar personaje por id"
+              (onDebounce)="searchCapituloById($event)"
+              />
+          </div>
+      </ng-template>
+          <ng-template pTemplate="header" let-columns #table>
+              <tr>
+                  <th>#Id</th>
+                  <th>Nombre de Capitulo</th>
+                  <th>Serie a la que pertenece</th>
+                  <th>Lista de sus Personajes</th>
+                  <th>Ver datos</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-caps >
+              <tr>
+                <td>
+                    {{ caps.numero_capitulo }}
+                </td>
+                <td >
+                    {{ caps.nombre_capitulo }}
+                </td>
+                <td >
+                  {{ caps.serie }}
+                </td>
+                <td >
+                  {{ caps.personajes}}
+                </td>
+                <td >
+                    <a
+                    [routerLink]="['/editar-capitulos/',caps.numero_capitulo]"
+                    routerLinkActive="router-link-active"
+                     >
+                      Editar
+                  </a>
+                </td>
+              </tr>
+          </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

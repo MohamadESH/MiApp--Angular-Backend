@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col">
+    <!-- Tabla  -->
+    <div class="card">
+      <p-table [value]="listaSeries" [tableStyle]="{ 'min-width': '50rem' }"  >
+
+        <ng-template pTemplate="caption">
+          <div class="flex align-items-center justify-content-between">
+              Lista series
+              <a routerLink="/crear-series" class="p-button font-bold">
+                Crear Serie
+            </a>
+              <component-search-box
+              placeholder="Buscar personaje por id"
+              (onDebounce)="searchSerieById($event)"
+              />
+          </div>
+      </ng-template>
+          <ng-template pTemplate="header" let-columns #table>
+              <tr>
+                  <th>#Id</th>
+                  <th>Nombre</th>
+                  <th>Capitulos que le pertenecen</th>
+                  <th>Editar Datos</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-ser >
+              <tr>
+                  <td>
+                      {{ ser.id_serie }}
+                  </td>
+                  <td >
+                    {{ ser.nombre_serie }}
+                </td>
+                <td >
+                  {{ ser.capitulos }}
+              </td>
+                  <td >
+                    <a [routerLink]="['/editar-series/', ser.id_serie]" >
+                      Editar
+                  </a>
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

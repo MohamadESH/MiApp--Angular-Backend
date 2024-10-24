@@ -1,17 +1,15 @@
 <div class="row">
   <div class="col">
-    <hr>
     <!-- Tabla  -->
-
-
-
     <div class="card">
       <p-table [value]="listaPersonajes" [tableStyle]="{ 'min-width': '50rem' }"  >
 
         <ng-template pTemplate="caption">
-          <!-- ToDo Añadir cabecera en capation? si se puede con titulo y el searchbox -->
           <div class="flex align-items-center justify-content-between">
               Lista Personajes
+              <a routerLink="/crear-personajes" class="p-button font-bold">
+                Crear personaje
+            </a>
               <component-search-box
               placeholder="Buscar personaje por id"
               (onDebounce)="searchPersonajeById($event)"
@@ -38,8 +36,8 @@
                   {{ per.capitulos }}
               </td>
                   <td >
-                    <a [routerLink]="['editar/', per.id_personaje]" >
-                      Ver perfil
+                    <a [routerLink]="['/editar-personajes/', per.id_personaje]" >
+                      Editar
                   </a>
                   </td>
               </tr>

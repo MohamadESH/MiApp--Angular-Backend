@@ -4,6 +4,7 @@ import { SearchBoxComponent } from './search-box/search-box.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { TabMenuComponent } from './tabMenu/tab-menu.component';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -14,14 +15,16 @@ import { TabMenuComponent } from './tabMenu/tab-menu.component';
     CommonModule,
     SearchBoxComponent,
     TableModule,
-    TabMenuComponent
+    TabMenuComponent,
+    InputTextModule,
   ],
   exports:[
     ButtonModule,
     CommonModule,
     SearchBoxComponent,
     TableModule,
-    TabMenuComponent
+    TabMenuComponent,
+    InputTextModule
   ]
 })
-export class ComponetsModuleModule { }
+export class ComponentsModule { }

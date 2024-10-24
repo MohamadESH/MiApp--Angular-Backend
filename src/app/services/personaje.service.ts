@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {  Observable, of } from 'rxjs';
+import {  map, Observable, tap } from 'rxjs';
 import { PersonajeResponse } from '../interfaces/personaje.interface';
+import { environment } from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class PersonajeService {
 
-  private url:string="http://localhost:8080/api"
+  //url desarollo
+  private url:string=environment.url
 
   constructor(private httpClient: HttpClient) {   }
 
@@ -17,6 +19,7 @@ export class PersonajeService {
 
   searchPersonajebyId(id:string):Observable<PersonajeResponse[]>{
     return  this.httpClient.get<PersonajeResponse[]>(`${this.url}/personajes/${id}`)
+
   }
 
 }

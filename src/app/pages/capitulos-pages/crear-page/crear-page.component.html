@@ -1,0 +1,65 @@
+<h3>Crear Capitulo</h3>
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="p-fluid p-fromgrid p-grid">
+
+    <!-- campo numero/id -->
+    <div class="p-field p-col-12">
+      <label for="numero"> numero</label>
+      <p-inputGroup>
+        <p-inputGroupAddon>
+            <i class="pi pi-user"></i>
+        </p-inputGroupAddon>
+        <input pInputText placeholder="Id Capitlo" formControlName="numero" />
+      </p-inputGroup>
+
+      @if (formulario.get("numero")?.invalid && formulario.get('numero')?.touched) {
+        <div>
+          El Campo es requerido
+        </div>
+      }
+    </div>
+
+    <!-- campo nombre -->
+    <div class="p-field p-col-12">
+      <label for="nombre"> Nombre</label>
+      <p-inputGroup>
+        <p-inputGroupAddon>
+            <i class="pi pi-user"></i>
+        </p-inputGroupAddon>
+        <input pInputText placeholder="Nombre" formControlName="nombre" type=""/>
+      </p-inputGroup>
+
+      @if (formulario.get("nombre")?.invalid && formulario.get("nombre")?.touched) {
+        <div>
+          El Campo es requerido
+        </div>
+      }
+    </div>
+
+    <!-- serie -->
+    <div class="p-field p-col-12">
+      <p-inputGroup>
+        <p-inputGroupAddon>
+            <i class="pi pi-user"></i>
+        </p-inputGroupAddon>
+        <input pInputText placeholder="id de serie" formControlName="serie"  type="number"/>
+      </p-inputGroup>
+    </div>
+
+    <!-- lista string -->
+     <div class="p-field p-col-12">
+      <p-dropdown
+      formControlName="selectedCity"
+      [options]="personajes"
+      optionLabel="name"
+      placeholder="Selecciona Personaje" />
+
+     </div>
+      <p-button pButton  label="Enviar" ></p-button>
+
+
+  </div>
+
+
+</form>
